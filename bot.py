@@ -10,6 +10,10 @@ logger = logging.getLogger("vortrex.core")
 
 bot.remove_command("help")
 
+if not os.path.exists("data/"):
+    os.makedirs("data/stats")
+    os.makedirs("data/persist")
+    os.makedirs("data/temp")
 
 @bot.event
 async def on_ready():
