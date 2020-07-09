@@ -5,7 +5,7 @@ import config
 import logging
 import os
 
-bot = commands.Bot("!")
+bot = commands.Bot("%%")
 logger = logging.getLogger("vortrex.core")
 
 bot.remove_command("help")
@@ -18,7 +18,6 @@ if not os.path.exists("data/"):
 @bot.event
 async def on_ready():
     logger.info("Launching Vortrex")
-    bot.help_command = commands.MinimalHelpCommand()
 
     for cog in os.listdir("cogs/"):
         if not cog.endswith(".py"):
