@@ -5,7 +5,7 @@ import config
 import logging
 import os
 
-bot = commands.Bot("%%")
+bot = commands.Bot(command_prefix=["%%", "v!"])
 logger = logging.getLogger("vortrex.core")
 logger.setLevel(logging.DEBUG)
 
