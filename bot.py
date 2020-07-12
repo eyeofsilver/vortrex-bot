@@ -4,8 +4,9 @@ from discord.ext.commands import has_any_role
 import config
 import logging
 import os
+from utils.checks import is_dev
 
-bot = commands.Bot("%%")
+bot = commands.Bot(command_prefix=["%%", "v!"])
 logger = logging.getLogger("vortrex.core")
 logger.setLevel(logging.DEBUG)
 
@@ -32,7 +33,7 @@ async def on_ready():
 
 @bot.command(name="reload")
 async def reload(ctx):
-    if not ctx.id == 297045071457681409:
+    if not ctx.author.id in config.DEVS:
         return
 
     logger.info("Reloading Vortrex")
@@ -46,6 +47,13 @@ async def reload(ctx):
             bot.reload_extension("cogs." + cog)
         except:
             logger.error(f"Failed to reload cog {cog}", exc_info=True)
+
+@bot.command(name="restart")
+async def restart(ctx):
+    if not ctx.author.id in config.DEVS:
+        return
+
+    await bot.logout()
 
 try:
     bot.run(config.TOKEN)
