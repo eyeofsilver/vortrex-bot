@@ -7,6 +7,7 @@ import os
 
 bot = commands.Bot("%%")
 logger = logging.getLogger("vortrex.core")
+logger.setLevel(logging.DEBUG)
 
 bot.remove_command("help")
 
