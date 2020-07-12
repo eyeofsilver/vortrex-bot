@@ -21,6 +21,8 @@ if not os.path.exists("data/"):
 async def on_ready():
     logger.info("Launching Vortrex")
 
+    await bot.change_presence(activity=discord.Game(name="%%help"))
+
     for cog in os.listdir("cogs/"):
         if not cog.endswith(".py"):
             continue
