@@ -10,7 +10,7 @@ bot = commands.Bot(command_prefix=["%%", "v!"])
 logger = logging.getLogger("vortrex.core")
 logger.setLevel(logging.DEBUG)
 
-bot.remove_command("help")
+#bot.remove_command("help")
 
 if not os.path.exists("data/"):
     os.makedirs("data/stats")
