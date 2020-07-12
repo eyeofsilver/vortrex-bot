@@ -26,4 +26,4 @@ class Encode(commands.Cog):
         await self.cool(ctx)
         text = " ".join(text)
         nums = [ord(char) for char in text]
-        await ctx.channel.send(f"{nums}")
+        await ctx.channel.send(f"{nums}"[:1500])
